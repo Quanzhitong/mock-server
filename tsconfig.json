@@ -1,0 +1,49 @@
+{
+  "extends": "ts-node/node16/tsconfig.json",
+    // ts-node 是一个 TypeScript 执行环境和 REPL，用于在 Node.js 中运行 TypeScript 代码
+    // REPL：在 REPL 环境中，程序会不断地读取用户输入的代码（Read），然后评估（Eval）这段代码，打印（Print）结果，然后回到起点，等待下一次输入。这个过程会持续进行，形成一个循环（Loop）。
+    "ts-node": {
+      // 只转译 TypeScript 代码，不执行类型检查
+      "transpileOnly": true,
+      // 允许在 ts-node 中直接导入非 TypeScript 文件（如 .json 或 .js 文件）
+      "files": true
+    },
+  
+    // 编译器选项
+    "compilerOptions": {
+      // 指定了编译器生成的 JavaScript 代码的版本
+      // ECMAScript: 生成的代码使用最新的 ECMAScript 特性
+      "target": "esnext",
+      // module 选项指定了编译器生成的 JavaScript 模块系统的类型。
+      // 这个选项决定了如何输出模块和如何处理模块导入
+      // 这里指定模块代码生成：CommonJS 或 ES6
+      "module": "CommonJS",
+      // 允许编译 JavaScript 文件
+      "allowJs": true,
+      // 不生成 lib.d.ts 声明文件，也不检查库文件的类型
+      "skipLibCheck": true,
+      // 为每个文件生成相应的 .d.ts 声明文件
+      "declaration": true,
+      // 模块解析策略：经典 Node.js 解析或 Node.js 项目文件
+      "moduleResolution": "node",
+      // 允许解析 JSON 文件模块
+      "resolveJsonModule": true,
+      // 从 tslib 导入辅助函数帮助编译
+      "importHelpers": true,
+      // 启用esModuleInterop 为 true 可以解决导出时的兼容性问题
+      "esModuleInterop": true,
+      // 启用装饰器元数据的发射
+      "emitDecoratorMetadata": true,
+      // 启用装饰器实验功能
+      "experimentalDecorators": true,
+      // 基础目录，用于解析非相对模块名称
+      "baseUrl": ".",
+      // 输出目录
+      "outDir": ".",
+      // 启用所有严格类型检查选项
+      "strict": true
+    },
+  
+    // 要排除的目录，编译时不会包括这些目录中的文件
+    "exclude": ["node_modules", "example.js", ]
+  }
