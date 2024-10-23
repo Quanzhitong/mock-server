@@ -16,6 +16,6 @@ server.on('listening', () => {
   if (!addr) {
     return;
   }
-  console.log(`Server is listening on port ${port}`);
+  console.log(`Server is listening on port localhost:${port}, you can view the mock data by accessing localhost:${port}/api/user.`);
 });
 
